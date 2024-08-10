@@ -57,11 +57,13 @@ header {
      left:0;
 
      background-color:white;
-     height:10%;
+     height:75px;
      border-bottom: 3px ridge #ccc;
 
      display:flex;
      justify-content: right;
+
+     user-select: none;
 }
 
 footer {
@@ -83,6 +85,10 @@ footer {
 
 #new:hover{
      cursor: pointer;
+     filter:brightness(90%);
+}
+#new:active{
+     filter:brightness(80%);
 }
 #repo-name{
      margin-right:.5rem;
