@@ -1,6 +1,9 @@
 let websiteList = []
 let main = document.querySelector('#main');
 let newButton = document.querySelector('#new');
+let description = document.querySelector('#desc');
+let anchor = document.querySelector('#anchor');
+let repoName = document.querySelector('#repo-name');
 
 
 
@@ -10,16 +13,22 @@ async function populateWebsiteList(){
 
     data.forEach(repo => {
         if(repo.has_pages){
-            websiteList.push(`https://${repo.owner.login}.github.io/${repo.name}`);
+            websiteList.push(repo);
         }
     })
-    main.data = websiteList[Math.floor(Math.random() * websiteList.length)]
+    resetData()
 }
 
 populateWebsiteList();
 
-console.log(typeof websiteList)
-
 newButton.addEventListener('click', () => {
-    main.data = websiteList[Math.floor(Math.random() * websiteList.length)]
+    resetData()
 })
+
+function resetData(){
+    const repo = websiteList[Math.floor(Math.random() * websiteList.length)]
+    description.innerText = repo.description
+    anchor.href = repo.html_url
+    repoName.innerText = repo.name
+    main.data = `https://${repo.owner.login}.github.io/${repo.name}`
+}
