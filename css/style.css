@@ -87,6 +87,7 @@ footer {
      cursor: pointer;
      filter:brightness(90%);
 }
+/*  slight ui */
 #new:active{
      filter:brightness(80%);
 }
