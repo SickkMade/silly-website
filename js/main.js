@@ -6,7 +6,7 @@ let anchor = document.querySelector('#anchor');
 let repoName = document.querySelector('#repo-name');
 
 async function populateWebsiteList(){
-    let response = await fetch('https://api.github.com/users/sickkmade/repos')
+    let response = await fetch('https://api.github.com/users/sickkmade/repos?per_page=100')
     let data = await response.json()
 
     data.forEach(repo => {
